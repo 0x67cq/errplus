@@ -18,3 +18,11 @@ func Wrap(err error, params ...interface{}) error {
     }
     return &e
 }
+
+func New(params ...interface{}) error {
+    e := ErrStack {
+        stackInfo: string(debug.Stack()),
+        params: params,
+    }
+    return &e
+}
